@@ -1,9 +1,8 @@
-import pytest
 from django.test import TestCase
 from django.core.files.uploadedfile import SimpleUploadedFile
 from rest_framework.test import APIClient
 from apps.documents.models import Document, Chunk
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
 
 
 class TestDocumentAPI(TestCase):

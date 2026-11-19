@@ -36,7 +36,8 @@ class OllamaProvider(AIProvider):
         """Generate an answer using Ollama chat model."""
         context_text = self._format_context(context_chunks)
 
-        prompt = f"""You are a helpful assistant that answers questions based on the provided document context.
+        prompt = f"""You are a helpful assistant that answers questions \
+based on the provided document context.
 
 Context from documents:
 {context_text}
@@ -77,5 +78,7 @@ Answer:"""
             doc_name = chunk.get("document_name", "Unknown")
             page = chunk.get("page_number", "?")
             content = chunk.get("content", "")
-            formatted.append(f"[{i}] Document: {doc_name}, Page: {page}\n{content}")
+            formatted.append(
+                f"[{i}] Document: {doc_name}, Page: {page}\n{content}"
+            )
         return "\n\n".join(formatted)

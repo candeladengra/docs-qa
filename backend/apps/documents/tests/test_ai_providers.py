@@ -1,4 +1,3 @@
-import pytest
 from apps.documents.ai_providers.base import AIProvider
 
 

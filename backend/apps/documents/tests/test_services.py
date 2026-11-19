@@ -1,4 +1,3 @@
-import pytest
 from apps.documents.services import PDFProcessingService
 
 
