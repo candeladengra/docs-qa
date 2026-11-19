@@ -4,14 +4,6 @@ Ask questions about your PDFs in natural language using RAG (Retrieval-Augmented
 
 [![CI](https://github.com/candeladengra/docs-qa/actions/workflows/ci.yml/badge.svg)](https://github.com/candeladengra/docs-qa/actions/workflows/ci.yml)
 
-![Docs Q&A Interface](./docs/screenshot.png)
-
-*UI mockup: Upload documents, track processing status, and ask questions (demo with fake provider)*
-
-![Q&A with Citations](./docs/qa-citations.png)
-
-*Answer with source citations showing document name and page numbers (demo with fake provider)*
-
 ## Features
 
 - PDF upload with async background processing
