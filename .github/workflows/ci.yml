@@ -53,7 +53,7 @@ jobs:
       - name: Run linting
         run: |
           cd backend
-          black --check .
+          black --check . --exclude migrations
           flake8 . --max-line-length=100 --exclude=migrations,__pycache__,venv
       
       - name: Run tests

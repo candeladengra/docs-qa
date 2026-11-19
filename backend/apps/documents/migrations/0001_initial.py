@@ -81,7 +81,8 @@ class Migration(migrations.Migration):
         migrations.AddIndex(
             model_name="chunk",
             index=models.Index(
-                fields=["document", "chunk_index"], name="documents_c_documen_f4e8c6_idx"
+                fields=["document", "chunk_index"],
+                name="documents_c_documen_f4e8c6_idx",
             ),
         ),
     ]
