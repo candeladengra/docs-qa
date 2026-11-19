@@ -14,8 +14,9 @@ class TestDocumentAPI(TestCase):
     def test_list_documents_empty(self):
         response = self.client.get("/api/documents/")
         assert response.status_code == 200
-        assert isinstance(response.json(), list)
-        assert len(response.json()) == 0
+        data = response.json()
+        assert "results" in data
+        assert len(data["results"]) == 0
 
     def test_list_documents_with_data(self):
         Document.objects.create(title="Test Document", file="test.pdf", status="ready")
@@ -23,9 +24,10 @@ class TestDocumentAPI(TestCase):
         response = self.client.get("/api/documents/")
         assert response.status_code == 200
         data = response.json()
-        assert len(data) == 1
-        assert data[0]["title"] == "Test Document"
-        assert data[0]["status"] == "ready"
+        assert "results" in data
+        assert len(data["results"]) == 1
+        assert data["results"][0]["title"] == "Test Document"
+        assert data["results"][0]["status"] == "ready"
 
     @patch("apps.documents.views.enqueue_document_processing")
     def test_upload_document(self, mock_enqueue):
@@ -62,7 +64,9 @@ class TestDocumentAPI(TestCase):
         mock_query.return_value = {"answer": "Test answer", "sources": []}
 
         response = self.client.post(
-            "/api/documents/query/", {"question": "What is this?"}, format="json"
+            "/api/documents/query/",
+            {"question": "What is this?"},
+            content_type="application/json",
         )
 
         assert response.status_code == 200
@@ -71,7 +75,9 @@ class TestDocumentAPI(TestCase):
         assert "sources" in data
 
     def test_query_endpoint_missing_question(self):
-        response = self.client.post("/api/documents/query/", {}, format="json")
+        response = self.client.post(
+            "/api/documents/query/", {}, content_type="application/json"
+        )
 
         assert response.status_code == 400
 
