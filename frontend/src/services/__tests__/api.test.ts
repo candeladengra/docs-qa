@@ -1,9 +1,11 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, vi, beforeEach } from 'vitest';
 import axios from 'axios';
 import { documentsApi } from '../api';
 
 vi.mock('axios');
-const mockedAxios = axios as any;
+const mockedAxios = axios as unknown as {
+  create: ReturnType<typeof vi.fn>;
+};
 
 describe('documentsApi', () => {
   beforeEach(() => {

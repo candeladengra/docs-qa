@@ -27,9 +27,7 @@ def get_ai_provider() -> AIProvider:
         )
     elif provider_name == "gemini":
         if not settings.GEMINI_API_KEY:
-            raise ValueError(
-                "GEMINI_API_KEY must be set to use Gemini provider"
-            )
+            raise ValueError("GEMINI_API_KEY must be set to use Gemini provider")
         return GeminiProvider(api_key=settings.GEMINI_API_KEY)
     else:
         raise ValueError(f"Unknown AI provider: {provider_name}")

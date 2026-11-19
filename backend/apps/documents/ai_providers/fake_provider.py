@@ -16,9 +16,7 @@ class FakeProvider(AIProvider):
         for text in texts:
             hash_val = int(hashlib.md5(text.encode()).hexdigest(), 16)
             # Generate deterministic "fake" embedding from hash
-            embedding = [
-                ((hash_val >> i) % 1000) / 1000.0 for i in range(768)
-            ]
+            embedding = [((hash_val >> i) % 1000) / 1000.0 for i in range(768)]
             embeddings.append(embedding)
         return embeddings
 
@@ -32,17 +30,13 @@ class FakeProvider(AIProvider):
         doc_names = set(chunk["document_name"] for chunk in context_chunks)
         pages = [chunk["page_number"] for chunk in context_chunks]
 
-        answer_parts = [
-            f"Based on the provided documents ({', '.join(doc_names)}), "
-        ]
+        answer_parts = [f"Based on the provided documents ({', '.join(doc_names)}), "]
 
         # Add some content from the chunks
         if context_chunks:
             first_chunk = context_chunks[0]
             content_preview = first_chunk["content"][:150]
-            answer_parts.append(
-                f"the information indicates: {content_preview}... "
-            )
+            answer_parts.append(f"the information indicates: {content_preview}... ")
 
         answer_parts.append(
             f"[Doc: {context_chunks[0]['document_name']}, "
