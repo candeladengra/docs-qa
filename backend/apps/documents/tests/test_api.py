@@ -66,7 +66,7 @@ class TestDocumentAPI(TestCase):
 
         response = self.client.post(
             "/api/documents/query/",
-            json.dumps({"question": "What is this?"}),
+            data=json.dumps({"question": "What is this?"}),
             content_type="application/json",
         )
 
@@ -78,7 +78,7 @@ class TestDocumentAPI(TestCase):
     def test_query_endpoint_missing_question(self):
         response = self.client.post(
             "/api/documents/query/",
-            json.dumps({}),
+            data=json.dumps({}),
             content_type="application/json",
         )
 
