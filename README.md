@@ -1,23 +1,21 @@
-# 📚 Docs Q&A - AI-Powered Document Question Answering
+# Docs Q&A
 
-Ask questions about your PDFs in natural language using RAG (Retrieval-Augmented Generation). A full-stack portfolio project showcasing end-to-end AI feature development.
+Ask questions about your PDFs in natural language using RAG (Retrieval-Augmented Generation).
 
-[![CI](https://github.com/USERNAME/docs-qa/actions/workflows/ci.yml/badge.svg)](https://github.com/USERNAME/docs-qa/actions/workflows/ci.yml)
+[![CI](https://github.com/candeladengra/docs-qa/actions/workflows/ci.yml/badge.svg)](https://github.com/candeladengra/docs-qa/actions/workflows/ci.yml)
 
 ![Docs Q&A Screenshot](./docs/screenshot.png)
 
-## 🎯 Features
+## Features
 
-- **📄 PDF Upload & Processing**: Upload PDF documents with async background processing
-- **🤖 Intelligent Q&A**: Ask questions in natural language and get accurate answers with source citations
-- **🔍 RAG Pipeline**: Advanced retrieval-augmented generation with vector similarity search
-- **💾 Persistent Storage**: PostgreSQL with pgvector extension for efficient vector operations
-- **🔄 Real-time Status**: Live updates on document processing status
-- **🎨 Modern UI**: Clean, responsive React interface with TypeScript
-- **🔌 Pluggable AI Providers**: Switch between local (Ollama) and cloud (Google Gemini) AI providers
-- **✅ Full Test Coverage**: Comprehensive backend and frontend tests
+- PDF upload with async background processing
+- Natural language question answering with source citations
+- RAG pipeline with vector similarity search (pgvector)
+- Real-time document processing status updates
+- Pluggable AI providers (local Ollama or cloud Gemini API)
+- Comprehensive test coverage
 
-## 🏗️ Architecture
+## Architecture
 
 ```mermaid
 graph TB
@@ -62,7 +60,7 @@ graph TB
     style Gemini fill:#9f7aea
 ```
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 - **Django 5.0** - Web framework
@@ -84,7 +82,7 @@ graph TB
 - **pytest** - Backend testing
 - **Vitest** - Frontend testing
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -121,11 +119,16 @@ Alternatively, use **Google Gemini API** (free tier available at [makersuite.goo
 4. **Access the application**
    - Frontend: [http://localhost:5173](http://localhost:5173)
    - Backend API: [http://localhost:8000/api/documents/](http://localhost:8000/api/documents/)
-   - Django Admin: [http://localhost:8000/admin/](http://localhost:8000/admin/) (admin/admin)
+   - Django Admin: [http://localhost:8000/admin/](http://localhost:8000/admin/)
 
-That's it! 🎉 Upload a PDF and start asking questions.
+5. **(Optional) Create a superuser** for Django admin access:
+   ```bash
+   docker-compose exec web python manage.py createsuperuser
+   ```
 
-## 🎮 Usage
+Upload a PDF and start asking questions.
+
+## Usage
 
 1. **Upload a PDF document** using the upload form
 2. **Wait for processing** - the document status will update automatically
@@ -137,7 +140,7 @@ That's it! 🎉 Upload a PDF and start asking questions.
 - "Summarize the key findings"
 - "What does the document say about [specific topic]?"
 
-## 🔧 Configuration
+## Configuration
 
 ### Using Ollama (Default - Free & Local)
 
@@ -159,7 +162,7 @@ AI_PROVIDER=gemini
 GEMINI_API_KEY=your-api-key-here
 ```
 
-## 🧪 Running Tests
+## Running Tests
 
 ### Backend Tests
 ```bash
@@ -181,7 +184,7 @@ docker-compose run web pytest
 docker-compose run frontend npm test
 ```
 
-## 📐 Design Decisions
+## Design Decisions
 
 ### Why RAG?
 Simple LLM API calls can't answer questions about private documents. RAG combines:
@@ -207,7 +210,7 @@ PostgreSQL extension for vector operations enables:
 - Native SQL queries
 - No separate vector database needed
 
-## 🎯 Project Structure
+## Project Structure
 
 ```
 docs-qa/
@@ -239,7 +242,7 @@ docs-qa/
 └── .github/workflows/ci.yml  # CI/CD pipeline
 ```
 
-## 🔮 Roadmap
+## Roadmap
 
 Future enhancements to consider:
 
@@ -254,11 +257,11 @@ Future enhancements to consider:
 - [ ] **Document comparison**: Compare answers across multiple docs
 - [ ] **OCR support**: Extract text from scanned PDFs
 
-## 📝 License
+## License
 
 MIT License - feel free to use this project for your portfolio or learning purposes.
 
-## 👤 Author
+## Author
 
 **Candela Dengra**  
 Full-Stack Developer | Python/Django + React/TypeScript
@@ -267,6 +270,3 @@ Full-Stack Developer | Python/Django + React/TypeScript
 - LinkedIn: [linkedin.com/in/yourprofile](#)
 - GitHub: [@yourusername](#)
 
----
-
-Built with ❤️ as a portfolio project showcasing modern full-stack development with AI/ML integration.

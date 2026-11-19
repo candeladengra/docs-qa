@@ -46,7 +46,12 @@
 4. **Access the application**
    - Frontend: http://localhost:5173
    - Backend API: http://localhost:8000
-   - Admin Panel: http://localhost:8000/admin (admin/admin)
+   - Admin Panel: http://localhost:8000/admin
+
+5. **(Optional) Create superuser for admin access**
+   ```bash
+   docker-compose exec web python manage.py createsuperuser
+   ```
 
 ## Troubleshooting
 
