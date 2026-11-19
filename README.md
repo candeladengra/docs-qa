@@ -4,7 +4,13 @@ Ask questions about your PDFs in natural language using RAG (Retrieval-Augmented
 
 [![CI](https://github.com/candeladengra/docs-qa/actions/workflows/ci.yml/badge.svg)](https://github.com/candeladengra/docs-qa/actions/workflows/ci.yml)
 
-![Docs Q&A Screenshot](./docs/screenshot.png)
+![Docs Q&A Interface](./docs/screenshot.png)
+
+*Upload documents, track processing status, and ask questions with cited answers*
+
+![Q&A with Citations](./docs/qa-citations.png)
+
+*Answers include source citations with document name and page numbers*
 
 ## Features
 
