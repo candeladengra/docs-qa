@@ -1,0 +1,134 @@
+.document-list {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-height: calc(100vh - 400px);
+  display: flex;
+  flex-direction: column;
+}
+
+.document-list h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.loading,
+.empty-state {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #718096;
+}
+
+.empty-state .hint {
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  color: #a0aec0;
+}
+
+.documents {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.document-item {
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  transition: box-shadow 0.2s;
+}
+
+.document-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.document-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.document-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.document-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.document-title {
+  font-weight: 600;
+  color: #2d3748;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.document-meta {
+  font-size: 0.875rem;
+  color: #718096;
+  margin-top: 0.25rem;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #cbd5e0;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.delete-button:hover {
+  background: #feb2b2;
+  color: #c53030;
+}
+
+.document-footer {
+  margin-top: 0.75rem;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-processing {
+  background: #fef5e7;
+  color: #d68910;
+}
+
+.status-ready {
+  background: #d5f4e6;
+  color: #1e8449;
+}
+
+.status-failed {
+  background: #fadbd8;
+  color: #c0392b;
+}
+
+.error-message {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #c53030;
+  padding: 0.5rem;
+  background: #fff5f5;
+  border-radius: 4px;
+}
