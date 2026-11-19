@@ -1,4 +1,3 @@
-import json
 from django.test import TestCase
 from django.core.files.uploadedfile import SimpleUploadedFile
 from rest_framework.test import APIClient
@@ -66,8 +65,8 @@ class TestDocumentAPI(TestCase):
 
         response = self.client.post(
             "/api/documents/query/",
-            data=json.dumps({"question": "What is this?"}),
-            content_type="application/json",
+            {"question": "What is this?"},
+            format="json",
         )
 
         assert response.status_code == 200
@@ -78,8 +77,8 @@ class TestDocumentAPI(TestCase):
     def test_query_endpoint_missing_question(self):
         response = self.client.post(
             "/api/documents/query/",
-            data=json.dumps({}),
-            content_type="application/json",
+            {},
+            format="json",
         )
 
         assert response.status_code == 400
