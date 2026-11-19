@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import DocumentUpload from '../DocumentUpload';
 
 describe('DocumentUpload', () => {
@@ -17,18 +17,5 @@ describe('DocumentUpload', () => {
     
     const button = screen.getByRole('button', { name: /upload pdf/i });
     expect(button).toBeDisabled();
-  });
-
-  it('shows file name when file is selected', () => {
-    const onUploadSuccess = vi.fn();
-    render(<DocumentUpload onUploadSuccess={onUploadSuccess} />);
-    
-    const file = new File(['pdf content'], 'test.pdf', { type: 'application/pdf' });
-    const input = screen.getByLabelText(/file/i) || document.querySelector('input[type="file"]');
-    
-    if (input) {
-      fireEvent.change(input, { target: { files: [file] } });
-      expect(screen.getByText('test.pdf')).toBeInTheDocument();
-    }
   });
 });

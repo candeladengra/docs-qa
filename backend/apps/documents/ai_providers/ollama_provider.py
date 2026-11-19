@@ -78,7 +78,5 @@ Answer:"""
             doc_name = chunk.get("document_name", "Unknown")
             page = chunk.get("page_number", "?")
             content = chunk.get("content", "")
-            formatted.append(
-                f"[{i}] Document: {doc_name}, Page: {page}\n{content}"
-            )
+            formatted.append(f"[{i}] Document: {doc_name}, Page: {page}\n{content}")
         return "\n\n".join(formatted)
